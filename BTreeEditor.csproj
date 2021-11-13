@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{F2D7C62A-7851-4258-B007-00322A930576}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BTreeEditor</RootNamespace>
+    <AssemblyName>BTreeEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BTreeControl.cs" />
+    <Compile Include="BTreeControl.Designer.cs" />
+    <Compile Include="BTreeWorkspace.cs" />
+    <Compile Include="Data\ArgumentObject.cs" />
+    <Compile Include="Data\BTreeNode.cs" />
+    <Compile Include="Data\BTreeNodeType.cs" />
+    <Compile Include="Data\BTreeVisualData.cs" />
+    <Compile Include="Data\BTreeWorkspaceData.cs" />
+    <Compile Include="Data\BTreeWorkspaceUtils.cs" />
+    <Compile Include="Data\EnumParamType.cs" />
+    <Compile Include="Data\MethodData.cs" />
+    <Compile Include="Data\Nodes\ActionEmptyNode.cs" />
+    <Compile Include="Data\Nodes\ActionNode.cs" />
+    <Compile Include="Data\Nodes\Branch\BranchConditionNode.cs" />
+    <Compile Include="Data\Nodes\Branch\BranchFalseNode.cs" />
+    <Compile Include="Data\Nodes\Branch\BranchTrueNode.cs" />
+    <Compile Include="Data\Nodes\ConditionNode.cs" />
+    <Compile Include="Data\Nodes\Conditions\AndConditionNode.cs" />
+    <Compile Include="Data\Nodes\Conditions\BreakConditionNode.cs" />
+    <Compile Include="Data\Nodes\Conditions\FalseConditionNode.cs" />
+    <Compile Include="Data\Nodes\Conditions\OrConditionNode.cs" />
+    <Compile Include="Data\Nodes\Conditions\PreConditionNode.cs" />
+    <Compile Include="Data\Nodes\Conditions\TrueConditionNode.cs" />
+    <Compile Include="Data\Nodes\IfElseNode.cs" />
+    <Compile Include="Data\Nodes\LoopNode.cs" />
+    <Compile Include="Data\Nodes\ReferenceBTreeNode.cs" />
+    <Compile Include="Data\Nodes\RootNode.cs" />
+    <Compile Include="Data\Nodes\SelectorNode.cs" />
+    <Compile Include="Data\Nodes\SequenceNode.cs" />
+    <Compile Include="Data\ParamData.cs" />
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\ActionConverter.cs" />
+    <Compile Include="Plugins\ArgumentObjectConverter.cs" />
+    <Compile Include="Plugins\ConditionConverter.cs" />
+    <Compile Include="Plugins\FileNameEditor.cs" />
+    <Compile Include="Plugins\FolderNameEditor.cs" />
+    <Compile Include="Plugins\ParamDataDescriptor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data" />
+    <Folder Include="Data\Nodes" />
+    <Folder Include="Data\Nodes\Branch" />
+    <Folder Include="Data\Nodes\Conditions" />
+    <Folder Include="Plugins" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BTreeControl.resx">
+      <DependentUpon>BTreeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
